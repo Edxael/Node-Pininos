@@ -9,14 +9,20 @@ var bank = {
   },
   deposit: function(user, amount){
     var move = 0;
-    for(x in this.accounts){
-      if(user === this.accounts[x]["user"]){
-        move += 1;
-        console.log("   Report of Deposit in ", user, " Account:");
-        console.log("Balance before Deposit: ", this.accounts[x]["balance"]);
-        console.log("Amount to deposit: ", amount);
-        this.accounts[x]["balance"] += amount;
-        console.log("Balance after Deposit: ", this.accounts[x]["balance"]);
+
+    if(typeof(amount) !== 'number'){
+      console.log("Cant plete Deposit, amount is NOT a NUMBER.")
+      move += 1;
+    }else{
+      for(x in this.accounts){
+        if(user === this.accounts[x]["user"]){
+          move += 1;
+          console.log("   Report of Deposit in ", user, " Account:");
+          console.log("Balance before Deposit: ", this.accounts[x]["balance"]);
+          console.log("Amount to deposit: ", amount);
+          this.accounts[x]["balance"] += amount;
+          console.log("Balance after Deposit: ", this.accounts[x]["balance"]);
+        }
       }
     }
     if(move === 0){console.log("No account with user: ", user);}
@@ -25,14 +31,20 @@ var bank = {
   },
   withdraw: function(user, amount){
     var move = 0;
-    for(x in this.accounts){
-      if(user === this.accounts[x]["user"]){
-        move += 1;
-        console.log("   Repor of Withraw in ", user, " Account:");
-        console.log("Banalce before Withraw: ", this.accounts[x]["balance"]);
-        console.log("Amount to Withraw: ", amount);
-        this.accounts[x]["balance"] -= amount;
-        console.log("Banalce after Withraw: ", this.accounts[x]["balance"]);
+
+    if(typeof(amount) !== 'number'){
+      console.log("Cant plete Withraw, amount is NOT a NUMBER.")
+      move += 1;
+    }else{
+      for(x in this.accounts){
+        if(user === this.accounts[x]["user"]){
+          move += 1;
+          console.log("   Repor of Withraw in ", user, " Account:");
+          console.log("Banalce before Withraw: ", this.accounts[x]["balance"]);
+          console.log("Amount to Withraw: ", amount);
+          this.accounts[x]["balance"] -= amount;
+          console.log("Banalce after Withraw: ", this.accounts[x]["balance"]);
+        }
       }
     }
     if(move === 0){console.log("No account with user: ", user);}
@@ -68,7 +80,7 @@ bank.createAccount("Steward", 12);
 console.log( bank.accounts );
 console.log("");
 
-bank.deposit("Oario", 5);
+bank.deposit("Mario", "k");
 console.log( bank.accounts );
 console.log("");
 
