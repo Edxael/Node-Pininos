@@ -1,0 +1,14 @@
+{
+  "name": "edxa-practice-01",
+  "version": "1.0.0",
+  "description": "Practice of node",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava 'app/**/*.test.js' --verbose --require ./other/setup-ava-tests.js"
+  },
+  "author": "Edxael",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
